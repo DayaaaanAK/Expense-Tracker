@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="header">
+        <h1>Expense Tracker</h1>
+      </div>
+      <div class="expense-form-container">
+        <p>Add Expense</p>
+        <form id="expense-form">
+          <input
+            type="text"
+            id="expense-name"
+            name="expense-name"
+            placeholder="Expense Name"
+            required
+          />
+          <input
+            type="number"
+            id="expense-amount"
+            name="expense-amount"
+            placeholder="Amount"
+            required
+          />
+          <select
+            id="expense-category"
+            name="expense-category"
+            required
+          ></select>
+          <input type="date" id="expense-date" name="expense-date" required />
+          <textarea
+            id="expense-notes"
+            name="expense-notes"
+            placeholder="Notes"
+          ></textarea>
+          <button type="submit">Add Expense</button>
+        </form>
+      </div>
+      <div class="expense-table-container">
+        <table id="expense-table">
+          <caption>
+            Expense List
+          </caption>
+          <thead id="expense-header">
+            <tr>
+              <th>Expense Name</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Notes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="expense-list"></tbody>
+        </table>
+      </div>
+      <div class="category-form-container">
+        <p>Add Expense Category</p>
+        <form id="category-form">
+          <input
+            type="text"
+            id="category-name"
+            name="category-name"
+            placeholder="Category Name"
+            required
+          />
+          <button type="submit">Add Category</button>
+        </form>
+      </div>
+      <div class="category-table-container">
+        <table id="category-table">
+          <caption>
+            Category List
+          </caption>
+          <thead id="category-header">
+            <tr>
+              <th>Category Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="category-list"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

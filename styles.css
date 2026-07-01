@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f1f2ec;
+  /* color: #1c1e1d; */
+  /* padding: 40px 20px; */
+  display: flex;
+  justify-content: center;
+}
+
+.background {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #1c1e1d;
+  font-weight: 600;
+}
+
+.expense-form-container,
+.category-form-container {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.expense-form-container p {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.category-form-container p {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e6e8e0;
+  background-color: #fbfbf9;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1c1e1d;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #7d827a;
+}
+
+textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #0b6d56;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.expense-table-container,
+.category-table-container {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+caption {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 15px;
+  color: #1c1e1d;
+}
+
+th {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7d827a;
+  letter-spacing: 0.5px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e6e8e0;
+}
+
+td {
+  padding: 14px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #e6e8e0;
+}
+
+td button {
+  padding: 6px 12px;
+  background-color: #f4f4f0;
+  border: 1px solid #e6e8e0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+td button:hover {
+  background-color: #e6e8e0;
+}
