@@ -25,22 +25,38 @@ document.addEventListener("DOMContentLoaded", () => {
   let incomes = JSON.parse(localStorage.getItem("incomes"));
   let categories = JSON.parse(localStorage.getItem("categories"));
 
-  expenseSearchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      
+  let expenseSearchTimer;
+
+  expenseSearchInput.addEventListener("input", (e) => {
+    e.preventDefault();
+
+    clearTimeout(expenseSearchTimer);
+
+    expenseSearchTimer = setTimeout(() => {
       const searchTerm = expenseSearchInput.value.toLowerCase();
-      alert(searchTerm);
-    }
+      console.log(searchTerm);
+
+      filteredExpenses = expenses.filter((expense) =>
+        expense.notes.toLowerCase().includes(searchTerm),
+      );
+      displayExpenses(filteredExpenses);
+    }, 500);
   });
 
-  incomeSearchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      
+  let incomeSearchTimer;
+
+  incomeSearchInput.addEventListener("input", (e) => {
+    e.preventDefault();
+
+    clearTimeout(incomeSearchTimer);
+
+    incomeSearchTimer = setTimeout(() => {
       const searchTerm = incomeSearchInput.value.toLowerCase();
-      alert(searchTerm);
-    }
+      filteredIncomes = incomes.filter((income) =>
+        income.notes.toLowerCase().includes(searchTerm),
+      );
+      displayIncomes(filteredIncomes);
+    }, 500);
   });
 
   toggleExpenseBtn.addEventListener("click", () => {
@@ -168,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categorySelect = document.getElementById("expense-category");
     categorySelect.innerHTML = '<option value="">Select Category</option>';
     categories.forEach((category) => {
-      console.log(category);
+      // console.log(category);
       const option = document.createElement("option");
       option.value = category.name;
       option.textContent = category.name;
