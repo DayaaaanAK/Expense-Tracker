@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const categoryForm = document.getElementById("category-form");
   const categoryList = document.getElementById("category-list");
-  const categoryContainer = document.querySelector(".category-container");
+  const categoryModal = document.querySelector(".category-modal");
 
   const toggleCategoryBtn = document.getElementById("toggle-category");
   const toggleExpenseBtn = document.getElementById("toggle-expense");
@@ -74,13 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   toggleCategoryBtn.addEventListener("click", () => {
-    categoryContainer.classList.toggle("hidden");
+    categoryModal.classList.toggle("hidden");
+  });
 
-    toggleCategoryBtn.textContent = categoryContainer.classList.contains(
-      "hidden",
-    )
-      ? "Show Categories"
-      : "Hide Categories";
+  window.addEventListener("click", (e) => {
+    if (e.target === categoryModal) {
+      categoryModal.classList.toggle("hidden");
+    }
   });
 
   categoryForm.addEventListener("submit", (e) => {
@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       row.innerHTML = `
         <td>${category.name}</td>
         <td>
+        
           <button class="delete-category-btn" data-id="${category.id}">Delete</button>
         </td>
       `;
