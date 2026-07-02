@@ -10,82 +10,165 @@
     <div class="background">
       <div class="header">
         <h1>Expense Tracker</h1>
+        <button id="toggle-category">Show Categories</button>
       </div>
-      <div class="expense-form-container">
-        <p>Add Expense</p>
-        <form id="expense-form">
-          <input
-            type="text"
-            id="expense-name"
-            name="expense-name"
-            placeholder="Expense Name"
-            required
-          />
-          <input
-            type="number"
-            id="expense-amount"
-            name="expense-amount"
-            placeholder="Amount"
-            required
-          />
-          <select
-            id="expense-category"
-            name="expense-category"
-            required
-          ></select>
-          <input type="date" id="expense-date" name="expense-date" required />
-          <textarea
-            id="expense-notes"
-            name="expense-notes"
-            placeholder="Notes"
-          ></textarea>
-          <button type="submit">Add Expense</button>
-        </form>
+      <div class="category-container hidden">
+        <div class="category-form-container">
+          <p>Add Expense Category</p>
+          <form id="category-form">
+            <input
+              type="text"
+              id="category-name"
+              name="category-name"
+              placeholder="Category Name"
+              required
+            />
+            <button type="submit">Add Category</button>
+          </form>
+        </div>
+        <div class="category-table-container">
+          <table id="category-table">
+            <caption>
+              Category List
+            </caption>
+            <thead id="category-header">
+              <tr>
+                <th>Category Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="category-list"></tbody>
+          </table>
+        </div>
       </div>
-      <div class="expense-table-container">
-        <table id="expense-table">
-          <caption>
-            Expense List
-          </caption>
-          <thead id="expense-header">
-            <tr>
-              <th>Expense Name</th>
-              <th>Amount</th>
-              <th>Category</th>
-              <th>Date</th>
-              <th>Notes</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="expense-list"></tbody>
-        </table>
-      </div>
-      <div class="category-form-container">
-        <p>Add Expense Category</p>
-        <form id="category-form">
-          <input
-            type="text"
-            id="category-name"
-            name="category-name"
-            placeholder="Category Name"
-            required
-          />
-          <button type="submit">Add Category</button>
-        </form>
-      </div>
-      <div class="category-table-container">
-        <table id="category-table">
-          <caption>
-            Category List
-          </caption>
-          <thead id="category-header">
-            <tr>
-              <th>Category Name</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="category-list"></tbody>
-        </table>
+      <div class="transaction-container">
+        <div class="transaction-toggle-container">
+          <button id="toggle-expense" disabled>Add Expense</button>
+          <button id="toggle-income">Add Income</button>
+        </div>
+        <div class="expense-container">
+          <div class="expense-search-container">
+            <input
+              type="text"
+              id="expense-search"
+              name="expense-search"
+              placeholder="Search Expense List"
+            />
+          </div>
+          <div class="expense-form-container">
+            <p>Add Expense</p>
+            <form id="expense-form">
+              <input
+                type="text"
+                id="expense-name"
+                name="expense-name"
+                placeholder="Expense Name"
+                required
+              />
+              <input
+                type="number"
+                id="expense-amount"
+                name="expense-amount"
+                placeholder="Amount"
+                required
+              />
+              <select
+                id="expense-category"
+                name="expense-category"
+                required
+              ></select>
+              <input
+                type="date"
+                id="expense-date"
+                name="expense-date"
+                required
+              />
+              <textarea
+                id="expense-notes"
+                name="expense-notes"
+                placeholder="Notes"
+              ></textarea>
+              <button type="submit">Add Expense</button>
+            </form>
+          </div>
+          <div class="expense-table-container">
+            <table id="expense-table">
+              <caption>
+                Expense List
+              </caption>
+              <thead id="expense-header">
+                <tr>
+                  <th>Expense Name</th>
+                  <th>Amount</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="expense-list"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="income-container">
+          <div class="income-search-container">
+            <input
+              type="text"
+              id="income-search"
+              name="income-search"
+              placeholder="Search Income List"
+            />
+          </div>
+          <div class="income-form-container">
+            <p>Add Income</p>
+            <form id="income-form">
+              <input
+                type="text"
+                id="income-name"
+                name="income-name"
+                placeholder="Income Name"
+                required
+              />
+              <input
+                type="number"
+                id="income-amount"
+                name="income-amount"
+                placeholder="Amount"
+                required
+              />
+              <!-- <select
+                id="income-category"
+                name="income-category"
+                required
+              ></select> -->
+              <input type="date" id="income-date" name="income-date" required />
+              <textarea
+                id="income-notes"
+                name="income-notes"
+                placeholder="Notes"
+              ></textarea>
+              <button type="submit">Add Income</button>
+            </form>
+          </div>
+          <div class="income-table-container">
+            <table id="income-table">
+              <caption>
+                Income List
+              </caption>
+              <thead id="income-header">
+                <tr>
+                  <th>Income Name</th>
+                  <th>Amount</th>
+                  <!-- <th>Category</th> -->
+                  <th>Date</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="income-list"></tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

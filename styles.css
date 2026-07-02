@@ -7,8 +7,6 @@
 
 body {
   background-color: #f1f2ec;
-  /* color: #1c1e1d; */
-  /* padding: 40px 20px; */
   display: flex;
   justify-content: center;
 }
@@ -16,9 +14,12 @@ body {
 .background {
   max-width: 1000px;
   width: 100%;
+  padding: 40px;
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 30px;
 }
 
@@ -29,6 +30,7 @@ body {
 }
 
 .expense-form-container,
+.income-form-container,
 .category-form-container {
   background-color: #ffffff;
   padding: 25px;
@@ -38,6 +40,12 @@ body {
 }
 
 .expense-form-container p {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.income-form-container p {
   font-weight: 600;
   margin-bottom: 15px;
   font-size: 18px;
@@ -95,6 +103,7 @@ button[type="submit"]:hover {
 }
 
 .expense-table-container,
+.income-table-container,
 .category-table-container {
   background-color: #ffffff;
   padding: 25px;
@@ -143,4 +152,95 @@ td button {
 
 td button:hover {
   background-color: #e6e8e0;
+}
+
+.category-container.hidden {
+  display: none;
+}
+
+#toggle-category {
+  background-color: #0b6d56;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.transaction-toggle-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#toggle-expense,
+#toggle-income {
+  background-color: #0b6d56;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#toggle-expense:disabled,
+#toggle-income:disabled {
+  background-color: #7d827a;
+  cursor: not-allowed;
+}
+
+.expense-container {
+  display: block;
+}
+
+.income-container {
+  display: none;
+}
+
+.expense-search-container,
+.income-search-container {
+  margin-bottom: 20px;
+}
+
+#expense-search,
+#income-search {
+  width: 25%;
+  padding: 10px;
+  border: 1px solid #e6e8e0;
+  background-color: #fbfbf9;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1c1e1d;
+  outline: none;
+}
+
+@media (min-width: 769px) {
+  .category-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .background {
+    padding: 15px;
+  }
+
+  .category-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #expense-search,
+  #income-search {
+    width: 100%;
+  }
 }
