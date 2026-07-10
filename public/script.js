@@ -1,4 +1,4 @@
-"use strict";
+import { setDate } from "./functions/Date.js";
 setDate();
 const expenseForm = document.getElementById("expense-form");
 const expenseList = document.getElementById("expense-list");
@@ -139,16 +139,6 @@ categoryList.addEventListener("click", (e) => {
         }
     }
 });
-function setDate() {
-    const expenseDateElement = document.getElementById("expense-date");
-    const incomeDateElement = document.getElementById("income-date");
-    if (incomeDateElement instanceof HTMLInputElement) {
-        incomeDateElement.valueAsDate = new Date();
-    }
-    if (expenseDateElement instanceof HTMLInputElement) {
-        expenseDateElement.valueAsDate = new Date();
-    }
-}
 function displayCategoriesDropdown(categories) {
     const categorySelect = document.getElementById("expense-category");
     categorySelect.innerHTML = '<option value="">Select Category</option>';

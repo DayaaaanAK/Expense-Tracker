@@ -1,3 +1,5 @@
+import {setDate} from "./functions/Date.js"
+
 interface Expense {
   id: number;
   name: string;
@@ -244,17 +246,7 @@ categoryList.addEventListener("click", (e) => {
   }
 });
 
-function setDate(): void {
-  const expenseDateElement = document.getElementById("expense-date");
-  const incomeDateElement = document.getElementById("income-date");
 
-  if (incomeDateElement instanceof HTMLInputElement) {
-    incomeDateElement.valueAsDate = new Date();
-  }
-  if (expenseDateElement instanceof HTMLInputElement) {
-    expenseDateElement.valueAsDate = new Date();
-  }
-}
 
 function displayCategoriesDropdown(categories: Category[]) {
   const categorySelect = document.getElementById(
