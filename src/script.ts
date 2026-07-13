@@ -1,5 +1,3 @@
-import {setDate} from "./functions/Date.js"
-
 interface Expense {
   id: number;
   name: string;
@@ -71,6 +69,40 @@ let incomes: Income[] = incomesJSON ? JSON.parse(incomesJSON) : [];
 
 let categoriesJSON = localStorage.getItem("categories");
 let categories: Category[] = categoriesJSON ? JSON.parse(categoriesJSON) : [];
+
+let expenseSearchTimer: number;
+
+expenseSearchInput.addEventListener("input", (e) => {
+  e.preventDefault();
+
+  clearTimeout(expenseSearchTimer);
+
+  expenseSearchTimer = setTimeout(() => {
+    const searchTerm = expenseSearchInput.value.toLowerCase();
+    console.log(searchTerm);
+
+    let filteredExpenses: Expense[] = expenses.filter((expense) =>
+      expense.notes.toLowerCase().includes(searchTerm),
+    );
+    displayExpenses(filteredExpenses);
+  }, 500);
+});
+
+let incomeSearchTimer: number;
+
+incomeSearchInput.addEventListener("input", (e) => {
+  e.preventDefault();
+
+  clearTimeout(incomeSearchTimer);
+
+  incomeSearchTimer = setTimeout(() => {
+    const searchTerm = incomeSearchInput.value.toLowerCase();
+    let filteredIncomes: Income[] = incomes.filter((income) =>
+      income.notes.toLowerCase().includes(searchTerm),
+    );
+    displayIncomes(filteredIncomes);
+  }, 500);
+});
 
 toggleExpenseBtn.addEventListener("click", () => {
   const expenseContainer = document.querySelector(".expense-container");
@@ -246,7 +278,17 @@ categoryList.addEventListener("click", (e) => {
   }
 });
 
+function setDate(): void {
+  const expenseDateElement = document.getElementById("expense-date");
+  const incomeDateElement = document.getElementById("income-date");
 
+  if (incomeDateElement instanceof HTMLInputElement) {
+    incomeDateElement.valueAsDate = new Date();
+  }
+  if (expenseDateElement instanceof HTMLInputElement) {
+    expenseDateElement.valueAsDate = new Date();
+  }
+}
 
 function displayCategoriesDropdown(categories: Category[]) {
   const categorySelect = document.getElementById(

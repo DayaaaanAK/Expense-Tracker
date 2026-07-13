@@ -1,4 +1,4 @@
-import { setDate } from "./functions/Date.js";
+"use strict";
 setDate();
 const expenseForm = document.getElementById("expense-form");
 const expenseList = document.getElementById("expense-list");
@@ -19,6 +19,27 @@ let incomesJSON = localStorage.getItem("incomes");
 let incomes = incomesJSON ? JSON.parse(incomesJSON) : [];
 let categoriesJSON = localStorage.getItem("categories");
 let categories = categoriesJSON ? JSON.parse(categoriesJSON) : [];
+let expenseSearchTimer;
+expenseSearchInput.addEventListener("input", (e) => {
+    e.preventDefault();
+    clearTimeout(expenseSearchTimer);
+    expenseSearchTimer = setTimeout(() => {
+        const searchTerm = expenseSearchInput.value.toLowerCase();
+        console.log(searchTerm);
+        let filteredExpenses = expenses.filter((expense) => expense.notes.toLowerCase().includes(searchTerm));
+        displayExpenses(filteredExpenses);
+    }, 500);
+});
+let incomeSearchTimer;
+incomeSearchInput.addEventListener("input", (e) => {
+    e.preventDefault();
+    clearTimeout(incomeSearchTimer);
+    incomeSearchTimer = setTimeout(() => {
+        const searchTerm = incomeSearchInput.value.toLowerCase();
+        let filteredIncomes = incomes.filter((income) => income.notes.toLowerCase().includes(searchTerm));
+        displayIncomes(filteredIncomes);
+    }, 500);
+});
 toggleExpenseBtn.addEventListener("click", () => {
     const expenseContainer = document.querySelector(".expense-container");
     const incomeContainer = document.querySelector(".income-container");
@@ -139,6 +160,16 @@ categoryList.addEventListener("click", (e) => {
         }
     }
 });
+function setDate() {
+    const expenseDateElement = document.getElementById("expense-date");
+    const incomeDateElement = document.getElementById("income-date");
+    if (incomeDateElement instanceof HTMLInputElement) {
+        incomeDateElement.valueAsDate = new Date();
+    }
+    if (expenseDateElement instanceof HTMLInputElement) {
+        expenseDateElement.valueAsDate = new Date();
+    }
+}
 function displayCategoriesDropdown(categories) {
     const categorySelect = document.getElementById("expense-category");
     categorySelect.innerHTML = '<option value="">Select Category</option>';
